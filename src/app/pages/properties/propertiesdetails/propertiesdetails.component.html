@@ -1,0 +1,219 @@
+<div class="row">
+  <nav>
+    <div class="nav-wrapper white grey-text text-darken-2">
+      <div class="col s12 grey-text text-darken-2">
+        <a [routerLink]="['../../']" class="breadcrumb grey-text">Dashboard</a>
+        <a [routerLink]="['../']" class="breadcrumb grey-text">Property</a>
+        <a [routerLink]="['./']" class="breadcrumb active">Details</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="row" style="padding: 0px 20px">
+    <ul class="collapsible popout z-depth-5" data-collapsible="accordion">
+      <li>
+        <div
+          class="collapsible-header light-green-text text-darken-4 active grey lighten-5"
+          style="font-size: 20px"
+        >
+          <i
+            class="material-icons amber-text text-darken-4"
+            style="font-size: 30px"
+            >looks_one</i
+          >
+          Property Profile
+        </div>
+        <div class="collapsible-body">
+          <form>
+            <div class="row">
+              <!-- <div class="input-field col s12 m6 l4">
+                <input
+                  id="propertyId"
+                  type="text"
+                  class="validate"
+                  [(ngModel)]="property.propertyId"
+                  name="propertyId"
+                  readonly
+                />
+                <label class="active" for="propertyId">Property ID</label>
+              </div> -->
+
+              <!-- <div class="input-field col s12 m6 l4">
+                <input
+                  id="ownerId"
+                  type="text"
+                  class="validate"
+                  [(ngModel)]="property.ownerId"
+                  name="ownerId"
+                />
+                <label class="active" for="ownerId">Owner ID</label>
+              </div> -->
+              <div class="input-field col s12 m6 l4">
+                <select
+                  id="ownerId"
+                  [(ngModel)]="property.ownerId"
+                  name="ownerId"
+                  materialize="material_select"
+                >
+                  <option [ngValue]="''" disabled selected>
+                    Choose your option
+                  </option>
+
+                  <option
+                    *ngFor="let owner of ownerList"
+                    [ngValue]="owner.ownerId"
+                  >
+                    {{ owner.firstName + " " + owner.lastName }}
+                  </option>
+                </select>
+
+                <label for="propertyType">Owner</label>
+              </div>
+
+              <div class="input-field col s12 m6 l4">
+                <input
+                  id="title"
+                  type="text"
+                  class="validate"
+                  [(ngModel)]="property.title"
+                  name="title"
+                />
+                <label class="active" for="title">Title</label>
+              </div>
+
+              <div class="input-field col s12 m6 l4">
+                <input
+                  id="description"
+                  type="text"
+                  class="validate"
+                  [(ngModel)]="property.description"
+                  name="description"
+                />
+                <label class="active" for="description">Description</label>
+              </div>
+
+              <div class="input-field col s12 m6 l4">
+                <input
+                  id="address"
+                  type="text"
+                  class="validate"
+                  [(ngModel)]="property.address"
+                  name="address"
+                />
+                <label class="active" for="address">Address</label>
+              </div>
+
+              <div class="input-field col s12 m6 l4">
+                <input
+                  id="city"
+                  type="text"
+                  class="validate"
+                  [(ngModel)]="property.city"
+                  name="city"
+                />
+                <label class="active" for="city">City</label>
+              </div>
+
+              <div class="input-field col s12 m6 l4">
+                <input
+                  id="state"
+                  type="text"
+                  class="validate"
+                  [(ngModel)]="property.state"
+                  name="state"
+                />
+                <label class="active" for="state">State</label>
+              </div>
+
+              <div class="input-field col s12 m6 l4">
+                <input
+                  id="country"
+                  type="text"
+                  class="validate"
+                  [(ngModel)]="property.country"
+                  name="country"
+                />
+                <label class="active" for="country">Country</label>
+              </div>
+
+              <div class="input-field col s12 m6 l4">
+                <input
+                  id="postalCode"
+                  type="text"
+                  class="validate"
+                  [(ngModel)]="property.postalCode"
+                  name="postalCode"
+                />
+                <label class="active" for="postalCode">Postal Code</label>
+              </div>
+
+              <div class="input-field col s12 m6 l4">
+                <input
+                  id="pricePerNight"
+                  type="number"
+                  class="validate"
+                  [(ngModel)]="property.pricePerNight"
+                  name="pricePerNight"
+                />
+                <label class="active" for="pricePerNight"
+                  >Price Per Night</label
+                >
+              </div>
+
+              <div class="input-field col s12 m6 l4">
+                <input
+                  id="maxGuests"
+                  type="number"
+                  class="validate"
+                  [(ngModel)]="property.maxGuests"
+                  name="maxGuests"
+                />
+                <label class="active" for="maxGuests">Max Guests</label>
+              </div>
+
+              <!-- <div class="input-field col s12 m6 l4">
+                <input
+                  id="propertyType"
+                  type="text"
+                  class="validate"
+                  [(ngModel)]="property.propertyType"
+                  name="propertyType"
+                />
+                <label class="active" for="propertyType">Property Type</label>
+              </div> -->
+              <div class="input-field col s12 m6 l4">
+                <select
+                  id="propertyType"
+                  [(ngModel)]="property.propertyType"
+                  name="propertyType"
+                  materialize="material_select"
+                >
+                  <option [ngValue]="''" disabled selected>
+                    Choose your option
+                  </option>
+                  <option [ngValue]="'Apartment'">Apartment</option>
+                  <option [ngValue]="'House'">House</option>
+                  <option [ngValue]="'Studio'">Studio</option>
+                  <option [ngValue]="'Villa'">Villa</option>
+                  <option [ngValue]="'Other'">Other</option>
+                </select>
+
+                <label for="propertyType">Property Type</label>
+              </div>
+            </div>
+            <button
+              class="btn waves-effect waves-light orange"
+              (click)="saveProperty()"
+              name="action"
+            >
+              Save <i class="material-icons right">add</i>
+            </button>
+            <div class="progress" *ngIf="isLoading">
+              <div class="indeterminate"></div>
+            </div>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
